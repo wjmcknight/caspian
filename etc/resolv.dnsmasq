@@ -1,2 +1,7 @@
-nameserver 8.8.4.4
-nameserver 8.8.8.8
+# DNS.WATCH
+nameserver 84.200.69.80
+nameserver 84.200.70.40
+
+# Comodo Secure DNS
+nameserver 8.26.56.26
+nameserver 8.20.247.20
