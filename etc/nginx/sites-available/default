@@ -1,9 +1,14 @@
 server {
-	listen 80 default_server;
-
+	listen 443 ssl;
 	server_name caspian.jhnmcknght.ca;
 	root /var/www/html;
-	autoindex on;
+	index index.html index.php;
+
+	# LetsEncrypt stuff
+	ssl_certificate /etc/letsencrypt/live/caspian.jhnmcknght.ca/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/caspian.jhnmcknght.ca/privkey.pem;
+	include /etc/letsencrypt/options-ssl-nginx.conf;
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
 	location / {}
 
@@ -28,4 +33,16 @@ server {
 		deny all;
 		index index.php;
 	}
+
+}
+
+server {
+	if ($host = caspian.jhnmcknght.ca) {
+        	return 301 https://$host$request_uri;
+	}
+
+	listen 80 default_server;
+
+	server_name caspian.jhnmcknght.ca;
+	return 404;
 }
