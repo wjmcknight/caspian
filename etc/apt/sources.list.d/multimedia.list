@@ -1,0 +1,3 @@
+# Deb Multimedia
+deb http://mirror.it.ubc.ca/deb-multimedia/ stretch main non-free
+deb-src http://mirror.it.ubc.ca/deb-multimedia/ stretch main non-free
